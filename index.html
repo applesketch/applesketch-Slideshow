@@ -4,58 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Example Cinematic</title>
+    <title>Sketch's D1 slideshow</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.60.0/phaser.js" integrity="sha512-H05oT7BAjM9Ai1IaFX9zr61NtE2e1P0MkTz3AZXBnseaJSAOt2FGMFJ+vVGutaJxEGA1jxUiYsTBYQNE08/Erw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script>
-        class Intro extends Phaser.Scene {
-            constructor() {
-                super('intro');
-            }
-            create() {
-                this.add.text(10,10,"Click to begin.");
-                this.input.on('pointerdown', () => this.scene.start('body'));
-            }
-        }
-
-        class Body extends Phaser.Scene {
-            constructor() {
-                super('body');
-            }
-            create() {
-                this.add.text(10,10,"I am the body scene.");
-                let box = this.add.text(300, 100,
-`Here
-is some
-multi-line text.
-
-I hope it shows correctly even though this last line is very long.`
-                );
-
-                let thing = this.add.circle(150, 150, 100, 0xff0000);
-                this.add.tween({
-                    targets: thing,
-                    scale: {from: 0, to: 1},
-                    duration: 1000
-                });
-
-                this.time.delayedCall(2000, () => {
-                    this.cameras.main.fadeOut(2000, 255,0,0);
-                });
-
-                this.time.delayedCall(5000, () => {
-                    this.scene.start('intro');
-                })
-
-                this.input.on('pointerdown', () => this.scene.start('intro'));
-            }
-        }
-
-        new Phaser.Game({
-            width: 640,
-            height: 480,
-            scene: [Intro, Body],
-        });
-    </script>
+    <script src="./scene1.js"></script>
+    <script src="./scene2.js"></script>
+    <script src="./scene3.js"></script>
+    <script src="./main.js"></script>
+    <div class="move"></div>
+        
 </head>
 <body>
     

@@ -1,0 +1,12 @@
+.move {
+    animation: slide 3s;
+}
+
+@keyframes slide {
+    from {
+      margin-right: 0;
+    }
+    to {
+      margin-left: 1;
+    }
+  }
